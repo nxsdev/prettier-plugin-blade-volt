@@ -1,3 +1,7 @@
+> [!CAUTION]
+> This is a workaround to temporarily use prettier in Livewire Volt and is therefore deprecated.<br>
+> We recommend removing it when it is officially supported.
+
 https://github.com/shufo/prettier-plugin-blade
 
 This is a script to exclude php tags containing Volt in blade templates from prettier when using Livewire Volt.
