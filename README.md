@@ -40,3 +40,22 @@ example:
     "trailingCommaPHP": true
 }
 ```
+
+execute(CLI):
+```bash
+./node_modules/.bin/prettier --write resources/**/*.blade.php
+```
+
+result:
+```php
+<!-- prettier-ignore-start -->
+<?php
+
+use Livewire\Volt\Component;
+
+new class extends Component
+{
+    public string $helloWorld;
+}; ?>
+<!-- prettier-ignore-end -->
+```
