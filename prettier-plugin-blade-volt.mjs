@@ -48,35 +48,35 @@ function addIgnoreComments(match) {
 function preprocessBlade(text, options) {
     if (options.addIgnoreCommentsForVolt) {
         text = text.replace(PHP_CODE_BLOCK_REGEX, (match) => {
-        if (match.includes(LIVEWIRE_VOLT_PATTERN)) {
-            return hasIgnoreComments(text, match) ? match : addIgnoreComments(match);
-        }
-        return match;
-    });
-  }
-  return text;
+            if (match.includes(LIVEWIRE_VOLT_PATTERN)) {
+                return hasIgnoreComments(text, match) ? match : addIgnoreComments(match);
+            }
+            return match;
+        });
+    }
+    return text;
 }
 
 /**
  * @type {import("prettier").Plugin<BladePluginOptions & BladeVoltPluginOptions>}
  */
 const plugin = {
-  parsers: {
-    ...parsers,
-    blade: {
-        ...parsers.blade,
-        preprocess: preprocessBlade,
+    parsers: {
+        ...parsers,
+        blade: {
+            ...parsers.blade,
+            preprocess: preprocessBlade,
+        },
     },
-  },
-  printers: {
-    ...printers,
-  },
-  options: {
-    ...options,
-    addIgnoreCommentsForVolt: {
-        type: "boolean",
-        default: true,
-        description: "Add Prettier ignore comments around PHP code blocks in Volt templates.",
+    printers: {
+        ...printers,
+    },
+    options: {
+        ...options,
+        addIgnoreCommentsForVolt: {
+            type: "boolean",
+            default: true,
+            description: "Add Prettier ignore comments around PHP code blocks in Volt templates.",
         },
     },
 };
